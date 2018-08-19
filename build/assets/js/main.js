@@ -79,7 +79,7 @@ function init_scroll_navigate() {
         if (currLink.attr("href").indexOf("#") > -1 && $(currLink.attr("href")).length > 0) {
             var refElement = $(currLink.attr("href"));
             if (refElement.position().top <= scrollPos && refElement.position().top + refElement.height() > scrollPos) {
-                menu_links.removeClass("active");
+                menu_links.removeClass("active");                
                 currLink.addClass("active");
             } else {
                 currLink.removeClass("active");
@@ -1720,7 +1720,7 @@ $(document).ready(function () {
             accessToken: '5640046896.1677ed0.f7cd85767e124a9f9f8d698cb33252a0',
             resolution: "low_resolution",
             error: {
-                template: '<div class="col-md-12 col-sm-12 col-xs-12"><span class=text-center>No Images Found</span></div>'
+                template: '<div class="col-md-12 col-sm-12 col-xs-12"><span class=text-center>No se encontraron imágenes</span></div>'
             },
             template: '<div class="col-md-3 col-sm-6 col-xs-12 instafeed-style1"><a class="insta-link" href="{{link}}" target="_blank"><img src="{{image}}" class="insta-image" /><div class="insta-counts"><span><i class="ti-heart"></i> <span class="count-number">{{likes}}</span></span><span><i class="ti-comment"></i> <span class="count-number">{{comments}}</span></span></div></a></div>'
         });
@@ -1739,7 +1739,7 @@ $(document).ready(function () {
                 equalizeHeight();
             },
             error: {
-                template: '<div class="col-md-12 col-sm-12 col-xs-12"><span class=text-center>No Images Found</span></div>'
+                template: '<div class="col-md-12 col-sm-12 col-xs-12"><span class=text-center>No se encontraron imágenes</span></div>'
             },
             template: '<li><figure><a href="{{link}}" target="_blank"><img src="{{image}}" class="insta-image" /><span class="insta-counts"><i class="ti-heart"></i>{{likes}}</span></a></figure></li>'
         });
@@ -1749,16 +1749,20 @@ $(document).ready(function () {
     if ($('#instaFeed-footer').length != 0) {
         var instaFeedFooter = new Instafeed({
             target: 'instaFeed-footer',
-            get: 'user',
-            userId: 5640046896,
-            limit: '6',
-            accessToken: '5640046896.1677ed0.f7cd85767e124a9f9f8d698cb33252a0',
+            get: 'location',
+            locationId: 730908037110433,
+            // userId: 5640046896,
+            userId: 285945070,
+            sortBy: 'random',
+            limit: '9',
+            // accessToken: '5640046896.1677ed0.f7cd85767e124a9f9f8d698cb33252a0',
+            accessToken: '285945070.12f06dc.421d8f2384e14f0f89009e292ac4a3d8',
             resolution: "low_resolution",
             after: function () {
                 equalizeHeight();
             },
             error: {
-                template: '<div class="col-md-12 col-sm-12 col-xs-12"><span class=text-center>No Images Found</span></div>'
+                template: '<div class="col-md-12 col-sm-12 col-xs-12"><span class=text-center>No se encontraron imágenes</span></div>'
             },
             template: '<li><figure><a href="{{link}}" target="_blank"><img src="{{image}}" class="insta-image" /><span class="insta-counts"><i class="ti-heart"></i><span>{{likes}}</span></span></a></figure></li>'
         });
