@@ -1746,7 +1746,7 @@ $(document).ready(function () {
         instaFeedAside.run();
     }
 
-    if ($('#instaFeed-footer').length != 0) {
+    if ($('#instaFeed-footer_old').length != 0) {
         var instaFeedFooter = new Instafeed({
             target: 'instaFeed-footer',
             get: 'location',
@@ -1768,6 +1768,39 @@ $(document).ready(function () {
         });
         instaFeedFooter.run();
     }
+
+    if ($('#instaFeed-footer').length != 0) {
+        var instaFeedFooter = new Instafeed({
+            target: 'instaFeed-footer',
+            get: 'user',
+            // locationId: 730908037110433,
+            // tagName: 'estereopicnic',
+            userId: 285945070,
+            sortBy: 'random',
+            limit: '9',
+            accessToken: '285945070.12f06dc.421d8f2384e14f0f89009e292ac4a3d8',
+            resolution: "low_resolution",
+            after: function () {
+                equalizeHeight();
+            },
+            error: {
+                template: '<div class="col-md-12 col-sm-12 col-xs-12"><span class=text-center>No se encontraron imágenes</span></div>'
+            },
+            template: `<li>
+                            <figure>
+                                <a href="{{link}}" target="_blank">
+                                    <img src="{{image}}" class="insta-image" />
+                                    <span class="insta-counts">
+                                        <i class="ti-heart"></i>
+                                        <span>{{likes}}</span>
+                                    </span>
+                                </a>
+                            </figure>
+                        </li>`
+        });
+        instaFeedFooter.run();
+    }
+
     /*==============================================================
     instagramfeed end
     ==============================================================*/
